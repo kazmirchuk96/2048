@@ -1,0 +1,40 @@
+C:\Users\ikazm\source\repos\2048\2048\bin\Debug\2048.exe.config
+C:\Users\ikazm\source\repos\2048\2048\bin\Debug\2048.exe
+C:\Users\ikazm\source\repos\2048\2048\bin\Debug\2048.pdb
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\2048.csprojAssemblyReference.cache
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\_2048.Form1.resources
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\_2048.Properties.Resources.resources
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\2048.csproj.GenerateResource.cache
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\2048.exe
+C:\Users\ikazm\source\repos\2048\2048\obj\Debug\2048.pdb
+F:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe.config
+F:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe
+F:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.pdb
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.AssemblyReference.cache
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Form1.resources
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Properties.Resources.resources
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.GenerateResource.cache
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.exe
+F:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.pdb
+G:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe.config
+G:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe
+G:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.pdb
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.AssemblyReference.cache
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Form1.resources
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Properties.Resources.resources
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.GenerateResource.cache
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.exe
+G:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.pdb
+E:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe.config
+E:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.exe
+E:\Файлы Илья\Проекты C#\2048\2048\bin\Debug\2048.pdb
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.AssemblyReference.cache
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Form1.resources
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\_2048.Properties.Resources.resources
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.GenerateResource.cache
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.exe
+E:\Файлы Илья\Проекты C#\2048\2048\obj\Debug\2048.pdb
