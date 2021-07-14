@@ -68,8 +68,8 @@ namespace _2048
             // pb33
             // 
             this.pb33.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb33.Location = new System.Drawing.Point(361, 436);
-            this.pb33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb33.Location = new System.Drawing.Point(358, 436);
+            this.pb33.Margin = new System.Windows.Forms.Padding(4);
             this.pb33.Name = "pb33";
             this.pb33.Size = new System.Drawing.Size(100, 100);
             this.pb33.TabIndex = 15;
@@ -78,8 +78,8 @@ namespace _2048
             // pb32
             // 
             this.pb32.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb32.Location = new System.Drawing.Point(251, 436);
-            this.pb32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb32.Location = new System.Drawing.Point(248, 436);
+            this.pb32.Margin = new System.Windows.Forms.Padding(4);
             this.pb32.Name = "pb32";
             this.pb32.Size = new System.Drawing.Size(100, 100);
             this.pb32.TabIndex = 14;
@@ -88,8 +88,8 @@ namespace _2048
             // pb30
             // 
             this.pb30.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb30.Location = new System.Drawing.Point(31, 436);
-            this.pb30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb30.Location = new System.Drawing.Point(28, 436);
+            this.pb30.Margin = new System.Windows.Forms.Padding(4);
             this.pb30.Name = "pb30";
             this.pb30.Size = new System.Drawing.Size(100, 100);
             this.pb30.TabIndex = 13;
@@ -98,8 +98,8 @@ namespace _2048
             // pb31
             // 
             this.pb31.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb31.Location = new System.Drawing.Point(141, 436);
-            this.pb31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb31.Location = new System.Drawing.Point(138, 436);
+            this.pb31.Margin = new System.Windows.Forms.Padding(4);
             this.pb31.Name = "pb31";
             this.pb31.Size = new System.Drawing.Size(100, 100);
             this.pb31.TabIndex = 12;
@@ -108,8 +108,8 @@ namespace _2048
             // pb23
             // 
             this.pb23.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb23.Location = new System.Drawing.Point(360, 328);
-            this.pb23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb23.Location = new System.Drawing.Point(357, 328);
+            this.pb23.Margin = new System.Windows.Forms.Padding(4);
             this.pb23.Name = "pb23";
             this.pb23.Size = new System.Drawing.Size(100, 100);
             this.pb23.TabIndex = 11;
@@ -118,8 +118,8 @@ namespace _2048
             // pb22
             // 
             this.pb22.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb22.Location = new System.Drawing.Point(251, 328);
-            this.pb22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb22.Location = new System.Drawing.Point(248, 328);
+            this.pb22.Margin = new System.Windows.Forms.Padding(4);
             this.pb22.Name = "pb22";
             this.pb22.Size = new System.Drawing.Size(100, 100);
             this.pb22.TabIndex = 10;
@@ -128,8 +128,8 @@ namespace _2048
             // pb21
             // 
             this.pb21.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb21.Location = new System.Drawing.Point(141, 328);
-            this.pb21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb21.Location = new System.Drawing.Point(138, 328);
+            this.pb21.Margin = new System.Windows.Forms.Padding(4);
             this.pb21.Name = "pb21";
             this.pb21.Size = new System.Drawing.Size(100, 100);
             this.pb21.TabIndex = 9;
@@ -138,8 +138,8 @@ namespace _2048
             // pb20
             // 
             this.pb20.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb20.Location = new System.Drawing.Point(31, 328);
-            this.pb20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb20.Location = new System.Drawing.Point(28, 328);
+            this.pb20.Margin = new System.Windows.Forms.Padding(4);
             this.pb20.Name = "pb20";
             this.pb20.Size = new System.Drawing.Size(100, 100);
             this.pb20.TabIndex = 8;
@@ -148,8 +148,8 @@ namespace _2048
             // pb13
             // 
             this.pb13.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb13.Location = new System.Drawing.Point(361, 218);
-            this.pb13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb13.Location = new System.Drawing.Point(358, 218);
+            this.pb13.Margin = new System.Windows.Forms.Padding(4);
             this.pb13.Name = "pb13";
             this.pb13.Size = new System.Drawing.Size(100, 100);
             this.pb13.TabIndex = 7;
@@ -158,8 +158,8 @@ namespace _2048
             // pb12
             // 
             this.pb12.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb12.Location = new System.Drawing.Point(251, 218);
-            this.pb12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb12.Location = new System.Drawing.Point(248, 218);
+            this.pb12.Margin = new System.Windows.Forms.Padding(4);
             this.pb12.Name = "pb12";
             this.pb12.Size = new System.Drawing.Size(100, 100);
             this.pb12.TabIndex = 6;
@@ -168,8 +168,8 @@ namespace _2048
             // pb11
             // 
             this.pb11.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb11.Location = new System.Drawing.Point(141, 218);
-            this.pb11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb11.Location = new System.Drawing.Point(138, 218);
+            this.pb11.Margin = new System.Windows.Forms.Padding(4);
             this.pb11.Name = "pb11";
             this.pb11.Size = new System.Drawing.Size(100, 100);
             this.pb11.TabIndex = 5;
@@ -178,8 +178,8 @@ namespace _2048
             // pb10
             // 
             this.pb10.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb10.Location = new System.Drawing.Point(31, 218);
-            this.pb10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb10.Location = new System.Drawing.Point(28, 218);
+            this.pb10.Margin = new System.Windows.Forms.Padding(4);
             this.pb10.Name = "pb10";
             this.pb10.Size = new System.Drawing.Size(100, 100);
             this.pb10.TabIndex = 4;
@@ -188,8 +188,8 @@ namespace _2048
             // pb03
             // 
             this.pb03.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb03.Location = new System.Drawing.Point(361, 108);
-            this.pb03.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb03.Location = new System.Drawing.Point(358, 108);
+            this.pb03.Margin = new System.Windows.Forms.Padding(4);
             this.pb03.Name = "pb03";
             this.pb03.Size = new System.Drawing.Size(100, 100);
             this.pb03.TabIndex = 3;
@@ -198,8 +198,8 @@ namespace _2048
             // pb02
             // 
             this.pb02.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb02.Location = new System.Drawing.Point(251, 108);
-            this.pb02.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb02.Location = new System.Drawing.Point(248, 108);
+            this.pb02.Margin = new System.Windows.Forms.Padding(4);
             this.pb02.Name = "pb02";
             this.pb02.Size = new System.Drawing.Size(100, 100);
             this.pb02.TabIndex = 2;
@@ -209,8 +209,8 @@ namespace _2048
             // pb01
             // 
             this.pb01.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb01.Location = new System.Drawing.Point(141, 108);
-            this.pb01.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb01.Location = new System.Drawing.Point(138, 108);
+            this.pb01.Margin = new System.Windows.Forms.Padding(4);
             this.pb01.Name = "pb01";
             this.pb01.Size = new System.Drawing.Size(100, 100);
             this.pb01.TabIndex = 1;
@@ -219,8 +219,8 @@ namespace _2048
             // pb00
             // 
             this.pb00.BackColor = System.Drawing.Color.Gainsboro;
-            this.pb00.Location = new System.Drawing.Point(31, 108);
-            this.pb00.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pb00.Location = new System.Drawing.Point(28, 108);
+            this.pb00.Margin = new System.Windows.Forms.Padding(4);
             this.pb00.Name = "pb00";
             this.pb00.Size = new System.Drawing.Size(100, 100);
             this.pb00.TabIndex = 0;
@@ -229,7 +229,7 @@ namespace _2048
             // pictureBack
             // 
             this.pictureBack.BackColor = System.Drawing.Color.DimGray;
-            this.pictureBack.Location = new System.Drawing.Point(21, 97);
+            this.pictureBack.Location = new System.Drawing.Point(18, 97);
             this.pictureBack.Name = "pictureBack";
             this.pictureBack.Size = new System.Drawing.Size(450, 450);
             this.pictureBack.TabIndex = 16;
@@ -258,7 +258,7 @@ namespace _2048
             this.Controls.Add(this.pb12);
             this.Controls.Add(this.pb13);
             this.Controls.Add(this.pictureBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pb33)).EndInit();
