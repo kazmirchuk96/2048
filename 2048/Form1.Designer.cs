@@ -46,6 +46,9 @@ namespace _2048
             this.pb01 = new System.Windows.Forms.PictureBox();
             this.pb00 = new System.Windows.Forms.PictureBox();
             this.pictureBack = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelScore = new System.Windows.Forms.Label();
+            this.labelBestScore = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb30)).BeginInit();
@@ -204,7 +207,6 @@ namespace _2048
             this.pb02.Size = new System.Drawing.Size(100, 100);
             this.pb02.TabIndex = 2;
             this.pb02.TabStop = false;
-            this.pb02.Click += new System.EventHandler(this.pb02_Click);
             // 
             // pb01
             // 
@@ -235,12 +237,43 @@ namespace _2048
             this.pictureBack.TabIndex = 16;
             this.pictureBack.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "SCORE";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // labelScore
+            // 
+            this.labelScore.AutoSize = true;
+            this.labelScore.Location = new System.Drawing.Point(31, 52);
+            this.labelScore.Name = "labelScore";
+            this.labelScore.Size = new System.Drawing.Size(16, 17);
+            this.labelScore.TabIndex = 18;
+            this.labelScore.Text = "0";
+            // 
+            // labelBestScore
+            // 
+            this.labelBestScore.AutoSize = true;
+            this.labelBestScore.Location = new System.Drawing.Point(191, 31);
+            this.labelBestScore.Name = "labelBestScore";
+            this.labelBestScore.Size = new System.Drawing.Size(16, 17);
+            this.labelBestScore.TabIndex = 19;
+            this.labelBestScore.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(488, 576);
+            this.Controls.Add(this.labelBestScore);
+            this.Controls.Add(this.labelScore);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pb33);
             this.Controls.Add(this.pb23);
             this.Controls.Add(this.pb32);
@@ -279,6 +312,7 @@ namespace _2048
             ((System.ComponentModel.ISupportInitialize)(this.pb00)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBack)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -300,6 +334,9 @@ namespace _2048
         private System.Windows.Forms.PictureBox pb01;
         private System.Windows.Forms.PictureBox pb00;
         private System.Windows.Forms.PictureBox pictureBack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelScore;
+        private System.Windows.Forms.Label labelBestScore;
     }
 }
 

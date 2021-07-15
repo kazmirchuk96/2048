@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Threading;
+using System.IO;
 
 namespace _2048
 {
@@ -20,28 +20,36 @@ namespace _2048
         Timer timer = new Timer();
         bool flagRandPict = false;
         bool isJoined;
-
+        private int score = 0;
+        //private int bestScore = 0;
         public Form1()
         {
             
             InitializeComponent();
             this.BackColor = Color.FromArgb(251, 246, 240);
             pictureBack.BackColor = Color.FromArgb(189, 173, 160);
-
-            //this.KeyPreview = true;
             field = new PictureBox[4, 4] { { pb00, pb01, pb02, pb03 }, { pb10, pb11, pb12, pb13 }, { pb20, pb21, pb22, pb23 }, { pb30, pb31, pb32, pb33 } };
-
             foreach (PictureBox pb in field)
             {
                 pb.BackColor = Color.FromArgb(214, 205, 196);
             }
-            for (int k = 0; k < 6; k++)
+            for (int k = 0; k < 2; k++)
             {
                 GenerationRandomCell();
             }
+
+            if (File.Exists(Application.StartupPath + "\\bestscore.txt"))//выводим лучший счет
+            {
+                StreamReader sr = new StreamReader(Application.StartupPath + "\\bestscore.txt");
+                labelBestScore.Text = sr.ReadLine();
+                sr.Close();
+            }
+            else
+            {
+                labelBestScore.Text = "0";
+            }
             KeyDown += new KeyEventHandler(OKP);
         }
-
 
         private void OKP(object sender, KeyEventArgs e)//функция которая вызывается во время нажатия одной из стрелочок клавиатуры
         {
@@ -67,11 +75,12 @@ namespace _2048
                                     }
                                     else
                                     {
-                                        if (array[k, j] == array[k - 1, j] && isJoined == false)
+                                        if (array[k, j] == array[k - 1, j])
                                         {
                                             if (isJoined == false)
                                             {
                                                 array[k, j] += array[k - 1, j];
+                                                score += array[k, j];
                                                 array[k - 1, j] = 0;
                                                 cells[k - 1, j].Location = cells[k, j].Location;
 
@@ -102,7 +111,6 @@ namespace _2048
                     GenerationRandomCell();
                     break;
                 case "Left":
-
                     for (int i = 0; i < array.GetLength(0); i++)
                     {
                         isJoined = false;
@@ -122,11 +130,12 @@ namespace _2048
                                     }
                                     else
                                     {
-                                        if (array[i, k] == array[i, k + 1] && isJoined == false)
+                                        if (array[i, k] == array[i, k + 1])
                                         {
                                             if (isJoined == false)
                                             {
                                                 array[i, k] += array[i, k + 1];
+                                                score += array[i, k];
                                                 array[i, k + 1] = 0;
                                                 cells[i, k + 1].Location = cells[i, k].Location;
 
@@ -157,7 +166,6 @@ namespace _2048
                     GenerationRandomCell();
                     break;
                 case "Right":
-
                     for (int i = 0; i < array.GetLength(0); i++)
                     {
                         isJoined = false;
@@ -177,11 +185,12 @@ namespace _2048
                                     }
                                     else
                                     {
-                                        if (array[i, k] == array[i, k - 1] && isJoined == false)
+                                        if (array[i, k] == array[i, k - 1])
                                         {
                                             if (isJoined == false)
                                             {
                                                 array[i, k] += array[i, k - 1];
+                                                score += array[i, k];
                                                 array[i, k - 1] = 0;
                                                 cells[i, k - 1].Location = cells[i, k].Location;
 
@@ -212,7 +221,6 @@ namespace _2048
                     GenerationRandomCell();
                     break;
                 case "Up":
-
                     for (int j = 0; j < array.GetLength(0); j++)
                     {
                         isJoined = false;
@@ -232,11 +240,12 @@ namespace _2048
                                     }
                                     else
                                     {
-                                        if (array[k, j] == array[k + 1, j] && isJoined == false)
+                                        if (array[k, j] == array[k + 1, j])
                                         {
                                             if (isJoined == false)
                                             {
                                                 array[k, j] += array[k + 1, j];
+                                                score += array[k, j];
                                                 array[k + 1, j] = 0;
                                                 cells[k + 1, j].Location = cells[k, j].Location;
 
@@ -267,6 +276,8 @@ namespace _2048
                     GenerationRandomCell();
                     break;
             }
+            labelScore.Text = score.ToString();
+            BestScore(score);
         }
         private void DrawNumeral(PictureBox pb, int text)
         {
@@ -383,224 +394,35 @@ namespace _2048
             } while (flag == false);
         }
 
-        private void pb02_Click(object sender, EventArgs e)
+        private void BestScore(int score)
+        {
+            int bestScore = 0;
+            if (File.Exists(Application.StartupPath + "\\bestscore.txt"))
+            {
+                StreamReader sr = new StreamReader(Application.StartupPath + "\\bestscore.txt");
+                bestScore = int.Parse(sr.ReadLine());
+                sr.Close();
+            }
+
+            if (score > bestScore)
+            {
+                StreamWriter sw = new StreamWriter(Application.StartupPath + "\\bestscore.txt", false, System.Text.Encoding.Default);
+                sw.WriteLine(score.ToString());
+                sw.Close();
+                labelBestScore.Text = score.ToString();
+            }
+            //else
+            //{
+            /*StreamWriter sw = new StreamWriter(Application.StartupPath + "\\bestscore.txt", false, System.Text.Encoding.Default);
+            sw.WriteLine("0");
+            sw.Close();*/
+            //}
+
+
+        }
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
-        
-        /*private void button1_Click(object sender, EventArgs e)//влево
-{
-bool isJoined;
-for (int i = 0; i < array.GetLength(0); i++)
-{
-isJoined = false;
-for (int j = 1; j < array.GetLength(0); j++)
-{
-  if (array[i, j] != 0)
-  {
-      for (int k = j - 1; k >= 0; k--)
-      {
-          if (array[i, k] == 0)
-          {
-              array[i, k] = array[i, k + 1];
-              array[i, k + 1] = 0;
-              cells[i, k + 1].Location = field[i, k].Location;
-              cells[i, k] = cells[i, k + 1];
-              cells[i, k + 1] = null;
-          }
-          else
-          {
-              if (array[i, k] == array[i, k + 1] && isJoined == false)
-              {
-                  array[i, k] += array[i, k + 1];
-                  array[i, k + 1] = 0;
-                  cells[i, k + 1].Location = cells[i, k].Location;
-
-                  //создание нового элемента
-                  PictureBox pictureBox = new PictureBox();
-                  pictureBox.Location = cells[i, k].Location;
-                  pictureBox.Size = cells[i, k].Size;
-                  DrawNumeral(pictureBox, array[i, k]);
-                  Controls.Add(pictureBox);
-                  pictureBox.BringToFront();
-                  this.Controls.Remove(cells[i, k]);
-                  this.Controls.Remove(cells[i, k+1]);
-                  cells[i, k] = null;
-                  cells[i, k + 1] = null;
-                  cells[i, k] = pictureBox;
-                  isJoined = true;
-              }
-              else
-              {
-                  isJoined = false;
-              }
-          }
-      }
-  }
-}
-}
-//GenerationRandomCell();
-}
-
-private void button2_Click(object sender, EventArgs e)//вверх
-{
-bool isJoined;
-for (int j = 0; j < array.GetLength(0); j++)
-{
-isJoined = false;
-for (int i = 1; i < array.GetLength(0); i++)
-{
-  if (array[i, j] != 0)
-  {
-      for (int k = i - 1; k >= 0; k--)
-      {
-          if (array[k, j] == 0)
-          {
-              array[k, j] = array[k+1, j];
-              array[k+1, j] = 0;
-              cells[k+1, j].Location = field[k, j].Location;
-              cells[k, j] = cells[k+1, j];
-              cells[k+1, j] = null;
-          }
-          else
-          {
-              if (array[k, j] == array[k+1, j] && isJoined == false)
-              {
-                  array[k, j] += array[k+1, j];
-                  array[k+1, j] = 0;
-                  cells[k+1, j].Location = cells[k, j].Location;
-
-                  //создание нового элемента
-                  PictureBox pictureBox = new PictureBox();
-                  pictureBox.Location = cells[k, j].Location;
-                  pictureBox.Size = cells[k, j].Size;
-                  DrawNumeral(pictureBox, array[k, j]);
-                  Controls.Add(pictureBox);
-                  pictureBox.BringToFront();
-                  Controls.Remove(cells[k, j]);
-                  Controls.Remove(cells[k+1, j]);
-                  cells[k, j] = null;
-                  cells[k+1, j] = null;
-                  cells[k, j] = pictureBox;
-                  isJoined = true;
-              }
-              else
-              {
-                  isJoined = false;
-              }
-          }
-      }
-  }
-}
-}
-// GenerationRandomCell();
-
-}
-
-private void button3_Click(object sender, EventArgs e)//вправо
-{
-bool isJoined;
-for (int i = 0; i < array.GetLength(0); i++)
-{
-isJoined = false;
-for (int j = 2; j >= 0; j--)
-{
-  if (array[i, j] != 0)
-  {
-      for (int k = j + 1; k < array.GetLength(0); k++)
-      {
-          if (array[i, k] == 0)
-          {
-              array[i, k] = array[i, k - 1];
-              array[i, k - 1] = 0;
-              cells[i, k - 1].Location = field[i, k].Location;
-              cells[i, k] = cells[i, k - 1];
-              cells[i, k - 1] = null;
-          }
-          else
-          {
-              if (array[i, k] == array[i, k - 1] && isJoined == false)
-              {
-                  array[i, k] += array[i, k - 1];
-                  array[i, k - 1] = 0;
-                  cells[i, k - 1].Location = cells[i, k].Location;
-
-                  //создание нового элемента
-                  PictureBox pictureBox = new PictureBox();
-                  pictureBox.Location = cells[i, k].Location;
-                  pictureBox.Size = cells[i, k].Size;
-                  DrawNumeral(pictureBox, array[i, k]);
-                  Controls.Add(pictureBox);
-                  pictureBox.BringToFront();
-                  this.Controls.Remove(cells[i, k]);
-                  this.Controls.Remove(cells[i, k - 1]);
-                  cells[i, k] = null;
-                  cells[i, k - 1] = null;
-                  cells[i, k] = pictureBox;
-                  isJoined = true;
-              }
-              else
-              {
-                  isJoined = false;
-              }
-          }
-      }
-  }
-}
-}
-}
-private void button4_Click(object sender, EventArgs e)
-{
-bool isJoined;
-for (int j = 0; j < array.GetLength(0); j++)
-{
-isJoined = false;
-for (int i = 2; i >= 0; i--)
-{
-  if (array[i, j] != 0)
-  {
-      for (int k = i + 1; k < array.GetLength(0); k++)
-      {
-          if (array[k, j] == 0)
-          {
-              array[k, j] = array[k - 1, j];
-              array[k - 1, j] = 0;
-              cells[k - 1, j].Location = field[k, j].Location;
-              cells[k, j] = cells[k - 1, j];
-              cells[k - 1, j] = null;
-          }
-          else
-          {
-              if (array[k, j] == array[k - 1, j] && isJoined == false)
-              {
-                  array[k, j] += array[k - 1, j];
-                  array[k - 1, j] = 0;
-                  cells[k - 1, j].Location = cells[k, j].Location;
-
-                  //создание нового элемента
-                  PictureBox pictureBox = new PictureBox();
-                  pictureBox.Location = cells[k, j].Location;
-                  pictureBox.Size = cells[k, j].Size;
-                  DrawNumeral(pictureBox, array[k, j]);
-                  Controls.Add(pictureBox);
-                  pictureBox.BringToFront();
-                  this.Controls.Remove(cells[k, j]);
-                  this.Controls.Remove(cells[k - 1, j]);
-                  cells[k, j] = null;
-                  cells[k - 1, j] = null;
-                  cells[k, j] = pictureBox;
-                  isJoined = true;
-              }
-              else
-              {
-                  isJoined = false;
-              }
-          }
-      }
-  }
-}
-}
-}*/
     }
 }
