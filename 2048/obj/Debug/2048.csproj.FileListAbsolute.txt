@@ -58,3 +58,13 @@ C:\Users\ikazm\Desktop\Для файлов\2048\2048\2048\obj\Debug\2048.pdb
 C:\Users\ikazm\Desktop\Для файлов\2048\2048\2048\bin\Debug\2048.exe.config
 C:\Users\ikazm\Desktop\Для файлов\2048\2048\2048\bin\Debug\2048.exe
 C:\Users\ikazm\Desktop\Для файлов\2048\2048\2048\bin\Debug\2048.pdb
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\bin\Debug\2048.exe.config
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\bin\Debug\2048.exe
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\bin\Debug\2048.pdb
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\2048.csproj.AssemblyReference.cache
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\_2048.Form1.resources
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\_2048.Properties.Resources.resources
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\2048.csproj.GenerateResource.cache
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\2048.exe
+C:\Users\ikazm\Desktop\For files\2048\2048\2048\obj\Debug\2048.pdb

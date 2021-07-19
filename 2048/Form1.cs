@@ -21,10 +21,9 @@ namespace _2048
         bool flagRandPict = false;
         bool isJoined;
         private int score = 0;
-        //private int bestScore = 0;
+        bool flag = true;
         public Form1()
         {
-            
             InitializeComponent();
             this.BackColor = Color.FromArgb(251, 246, 240);
             pictureBack.BackColor = Color.FromArgb(189, 173, 160);
@@ -37,7 +36,6 @@ namespace _2048
             {
                 GenerationRandomCell();
             }
-
             if (File.Exists(Application.StartupPath + "\\bestscore.txt"))//выводим лучший счет
             {
                 StreamReader sr = new StreamReader(Application.StartupPath + "\\bestscore.txt");
@@ -73,36 +71,35 @@ namespace _2048
                                         cells[k, j] = cells[k - 1, j];
                                         cells[k - 1, j] = null;
                                     }
+                                    else if (array[k, j] == array[k - 1, j])
+                                    {
+                                        if (isJoined == false)
+                                        {
+                                            array[k, j] += array[k - 1, j];
+                                            score += array[k, j];
+                                            array[k - 1, j] = 0;
+                                            cells[k - 1, j].Location = cells[k, j].Location;
+
+                                            //создание нового элемента
+                                            PictureBox pictureBox = new PictureBox();
+                                            pictureBox.Location = cells[k, j].Location;
+                                            pictureBox.Size = cells[k, j].Size;
+                                            DrawNumeral(pictureBox, array[k, j]);
+                                            Controls.Add(pictureBox);
+                                            pictureBox.BringToFront();
+                                            Controls.Remove(cells[k, j]);
+                                            Controls.Remove(cells[k - 1, j]);
+                                            cells[k, j] = null;
+                                            cells[k - 1, j] = null;
+                                            cells[k, j] = pictureBox;
+                                            isJoined = true;
+                                            break;
+                                        }
+                                    }
                                     else
                                     {
-                                        if (array[k, j] == array[k - 1, j])
-                                        {
-                                            if (isJoined == false)
-                                            {
-                                                array[k, j] += array[k - 1, j];
-                                                score += array[k, j];
-                                                array[k - 1, j] = 0;
-                                                cells[k - 1, j].Location = cells[k, j].Location;
-
-                                                //создание нового элемента
-                                                PictureBox pictureBox = new PictureBox();
-                                                pictureBox.Location = cells[k, j].Location;
-                                                pictureBox.Size = cells[k, j].Size;
-                                                DrawNumeral(pictureBox, array[k, j]);
-                                                Controls.Add(pictureBox);
-                                                pictureBox.BringToFront();
-                                                this.Controls.Remove(cells[k, j]);
-                                                this.Controls.Remove(cells[k - 1, j]);
-                                                cells[k, j] = null;
-                                                cells[k - 1, j] = null;
-                                                cells[k, j] = pictureBox;
-                                                isJoined = true;
-                                            }
-                                            else
-                                            {
-                                                isJoined = false;
-                                            }
-                                        }
+                                        isJoined = false;
+                                        break;
                                     }
                                 }
                             }
@@ -128,36 +125,35 @@ namespace _2048
                                         cells[i, k] = cells[i, k + 1];
                                         cells[i, k + 1] = null;
                                     }
+                                    else if (array[i, k] == array[i, k + 1])
+                                    {
+                                        if (isJoined == false)
+                                        {
+                                            array[i, k] += array[i, k + 1];
+                                            score += array[i, k];
+                                            array[i, k + 1] = 0;
+                                            cells[i, k + 1].Location = cells[i, k].Location;
+
+                                            //создание нового элемента
+                                            PictureBox pictureBox = new PictureBox();
+                                            pictureBox.Location = cells[i, k].Location;
+                                            pictureBox.Size = cells[i, k].Size;
+                                            DrawNumeral(pictureBox, array[i, k]);
+                                            Controls.Add(pictureBox);
+                                            pictureBox.BringToFront();
+                                            Controls.Remove(cells[i, k]);
+                                            Controls.Remove(cells[i, k + 1]);
+                                            cells[i, k] = null;
+                                            cells[i, k + 1] = null;
+                                            cells[i, k] = pictureBox;
+                                            isJoined = true;
+                                            break;
+                                        }
+                                    }
                                     else
                                     {
-                                        if (array[i, k] == array[i, k + 1])
-                                        {
-                                            if (isJoined == false)
-                                            {
-                                                array[i, k] += array[i, k + 1];
-                                                score += array[i, k];
-                                                array[i, k + 1] = 0;
-                                                cells[i, k + 1].Location = cells[i, k].Location;
-
-                                                //создание нового элемента
-                                                PictureBox pictureBox = new PictureBox();
-                                                pictureBox.Location = cells[i, k].Location;
-                                                pictureBox.Size = cells[i, k].Size;
-                                                DrawNumeral(pictureBox, array[i, k]);
-                                                Controls.Add(pictureBox);
-                                                pictureBox.BringToFront();
-                                                this.Controls.Remove(cells[i, k]);
-                                                this.Controls.Remove(cells[i, k + 1]);
-                                                cells[i, k] = null;
-                                                cells[i, k + 1] = null;
-                                                cells[i, k] = pictureBox;
-                                                isJoined = true;
-                                            }
-                                            else
-                                            {
-                                                isJoined = false;
-                                            }
-                                        }
+                                        isJoined = false;
+                                        break;
                                     }
                                 }
                             }
@@ -183,36 +179,35 @@ namespace _2048
                                         cells[i, k] = cells[i, k - 1];
                                         cells[i, k - 1] = null;
                                     }
+                                    else if (array[i, k] == array[i, k - 1])
+                                    {
+                                        if (isJoined == false)
+                                        {
+                                            array[i, k] += array[i, k - 1];
+                                            score += array[i, k];
+                                            array[i, k - 1] = 0;
+                                            cells[i, k - 1].Location = cells[i, k].Location;
+
+                                            //создание нового элемента
+                                            PictureBox pictureBox = new PictureBox();
+                                            pictureBox.Location = cells[i, k].Location;
+                                            pictureBox.Size = cells[i, k].Size;
+                                            DrawNumeral(pictureBox, array[i, k]);
+                                            Controls.Add(pictureBox);
+                                            pictureBox.BringToFront();
+                                            this.Controls.Remove(cells[i, k]);
+                                            this.Controls.Remove(cells[i, k - 1]);
+                                            cells[i, k] = null;
+                                            cells[i, k - 1] = null;
+                                            cells[i, k] = pictureBox;
+                                            isJoined = true;
+                                            break;
+                                        }
+                                    }
                                     else
                                     {
-                                        if (array[i, k] == array[i, k - 1])
-                                        {
-                                            if (isJoined == false)
-                                            {
-                                                array[i, k] += array[i, k - 1];
-                                                score += array[i, k];
-                                                array[i, k - 1] = 0;
-                                                cells[i, k - 1].Location = cells[i, k].Location;
-
-                                                //создание нового элемента
-                                                PictureBox pictureBox = new PictureBox();
-                                                pictureBox.Location = cells[i, k].Location;
-                                                pictureBox.Size = cells[i, k].Size;
-                                                DrawNumeral(pictureBox, array[i, k]);
-                                                Controls.Add(pictureBox);
-                                                pictureBox.BringToFront();
-                                                this.Controls.Remove(cells[i, k]);
-                                                this.Controls.Remove(cells[i, k - 1]);
-                                                cells[i, k] = null;
-                                                cells[i, k - 1] = null;
-                                                cells[i, k] = pictureBox;
-                                                isJoined = true;
-                                            }
-                                            else
-                                            {
-                                                isJoined = false;
-                                            }
-                                        }
+                                        isJoined = false;
+                                        break;
                                     }
                                 }
                             }
@@ -238,36 +233,35 @@ namespace _2048
                                         cells[k, j] = cells[k + 1, j];
                                         cells[k + 1, j] = null;
                                     }
+                                    else if (array[k, j] == array[k + 1, j])
+                                    {
+                                        if (isJoined == false)
+                                        {
+                                            array[k, j] += array[k + 1, j];
+                                            score += array[k, j];
+                                            array[k + 1, j] = 0;
+                                            cells[k + 1, j].Location = cells[k, j].Location;
+
+                                            //создание нового элемента
+                                            PictureBox pictureBox = new PictureBox();
+                                            pictureBox.Location = cells[k, j].Location;
+                                            pictureBox.Size = cells[k, j].Size;
+                                            DrawNumeral(pictureBox, array[k, j]);
+                                            Controls.Add(pictureBox);
+                                            pictureBox.BringToFront();
+                                            Controls.Remove(cells[k, j]);
+                                            Controls.Remove(cells[k + 1, j]);
+                                            cells[k, j] = null;
+                                            cells[k + 1, j] = null;
+                                            cells[k, j] = pictureBox;
+                                            isJoined = true;
+                                            break;
+                                        }
+                                    }
                                     else
                                     {
-                                        if (array[k, j] == array[k + 1, j])
-                                        {
-                                            if (isJoined == false)
-                                            {
-                                                array[k, j] += array[k + 1, j];
-                                                score += array[k, j];
-                                                array[k + 1, j] = 0;
-                                                cells[k + 1, j].Location = cells[k, j].Location;
-
-                                                //создание нового элемента
-                                                PictureBox pictureBox = new PictureBox();
-                                                pictureBox.Location = cells[k, j].Location;
-                                                pictureBox.Size = cells[k, j].Size;
-                                                DrawNumeral(pictureBox, array[k, j]);
-                                                Controls.Add(pictureBox);
-                                                pictureBox.BringToFront();
-                                                Controls.Remove(cells[k, j]);
-                                                Controls.Remove(cells[k + 1, j]);
-                                                cells[k, j] = null;
-                                                cells[k + 1, j] = null;
-                                                cells[k, j] = pictureBox;
-                                                isJoined = true;
-                                            }
-                                            else
-                                            {
-                                                isJoined = false;
-                                            }
-                                        }
+                                        isJoined = false;
+                                        break;
                                     }
                                 }
                             }
@@ -381,7 +375,7 @@ namespace _2048
                     pictureBox.Location = field[i, j].Location;
                     pictureBox.Size = field[i, j].Size;
                     flagRandPict = true;
-                    DrawNumeral(pictureBox, num == 0 ? 2 : 4);
+                    DrawNumeral(pictureBox, array[i,j]);
                     Controls.Add(pictureBox);
                     pictureBox.BringToFront();
                     cells[i, j] = pictureBox;
@@ -392,6 +386,58 @@ namespace _2048
                     flag = false;
                 }
             } while (flag == false);
+
+           
+            //симулирование игровой ситуации
+            /*if (flag)
+            {
+                int i = 0;
+                //0,0
+                array[0, 0] = 2;
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Location = field[i, 0].Location;
+                pictureBox.Size = field[i, 0].Size;
+                flagRandPict = true;
+                DrawNumeral(pictureBox, array[i, 0]);
+                Controls.Add(pictureBox);
+                pictureBox.BringToFront();
+                cells[0, 0] = pictureBox;
+
+
+                //0,1
+                array[0, 1] = 2;
+                pictureBox = new PictureBox();
+                pictureBox.Location = field[i, 1].Location;
+                pictureBox.Size = field[i, 1].Size;
+                flagRandPict = true;
+                DrawNumeral(pictureBox, array[i, 1]);
+                Controls.Add(pictureBox);
+                pictureBox.BringToFront();
+                cells[0, 1] = pictureBox;
+
+                //0,2
+                array[0, 2] = 8;
+                pictureBox = new PictureBox();
+                pictureBox.Location = field[i, 2].Location;
+                pictureBox.Size = field[i, 2].Size;
+                flagRandPict = true;
+                DrawNumeral(pictureBox, array[i, 2]);
+                Controls.Add(pictureBox);
+                pictureBox.BringToFront();
+                cells[0, 2] = pictureBox;
+
+                //0,3
+                array[0, 3] = 8;
+                pictureBox = new PictureBox();
+                pictureBox.Location = field[i, 3].Location;
+                pictureBox.Size = field[i, 3].Size;
+                flagRandPict = true;
+                DrawNumeral(pictureBox, array[i, 3]);
+                Controls.Add(pictureBox);
+                pictureBox.BringToFront();
+                cells[i, 3] = pictureBox;
+                flag = false;
+            }*/
         }
 
         private void BestScore(int score)
@@ -411,18 +457,6 @@ namespace _2048
                 sw.Close();
                 labelBestScore.Text = score.ToString();
             }
-            //else
-            //{
-            /*StreamWriter sw = new StreamWriter(Application.StartupPath + "\\bestscore.txt", false, System.Text.Encoding.Default);
-            sw.WriteLine("0");
-            sw.Close();*/
-            //}
-
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
