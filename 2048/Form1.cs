@@ -13,7 +13,7 @@ namespace _2048
 {
     public partial class Form1 : Form
     {
-        private int[,] array = new int[4, 4];//массив с цифрами, дубляж игрового поля
+        int[,] array = new int[4, 4];//массив с цифрами, дубляж игрового поля
         Random rand = new Random();
         PictureBox[,] field;//серые ячейки
         PictureBox[,] cells = new PictureBox[4, 4];//ячейки с цифрами
@@ -21,7 +21,7 @@ namespace _2048
         bool flagRandPict = false;
         bool isJoined;
         private int score = 0;
-        bool flag = true;
+
         public Form1()
         {
             InitializeComponent();
@@ -46,9 +46,9 @@ namespace _2048
             {
                 labelBestScore.Text = "0";
             }
+
             KeyDown += new KeyEventHandler(OKP);
         }
-
         private void OKP(object sender, KeyEventArgs e)//функция которая вызывается во время нажатия одной из стрелочок клавиатуры
         {
             switch (e.KeyCode.ToString())
@@ -361,85 +361,91 @@ namespace _2048
         }
         private void GenerationRandomCell()
         {
-            bool flag;
-            do
+            List<int[]> freePos = new List<int[]>();//координаты пустых клеток
+
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                int i = rand.Next(0, 4);
-                int j = rand.Next(0, 4);
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (array[i, j] == 0)
+                    {
+                        freePos.Add(new int[2] { i, j });//записываем в лист координаты пустых клеток
+                    }
+                }
+            }
+            if (freePos.Count != 0)//если количество пустых клеток не равняется нулю, добавляем новую цифру
+            {
+                int n = rand.Next(0, freePos.Count);
                 int num = rand.Next(0, 2);
-
-                if (array[i, j] == 0)
-                {
-                    array[i, j] = num == 0 ? 2 : 4;
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.Location = field[i, j].Location;
-                    pictureBox.Size = field[i, j].Size;
-                    flagRandPict = true;
-                    DrawNumeral(pictureBox, array[i,j]);
-                    Controls.Add(pictureBox);
-                    pictureBox.BringToFront();
-                    cells[i, j] = pictureBox;
-                    flag = true;
-                }
-                else
-                {
-                    flag = false;
-                }
-            } while (flag == false);
-
-           
-            //симулирование игровой ситуации
-            /*if (flag)
-            {
-                int i = 0;
-                //0,0
-                array[0, 0] = 2;
+                array[freePos[n][0], freePos[n][1]] = num == 0 ? 2 : 4;
                 PictureBox pictureBox = new PictureBox();
-                pictureBox.Location = field[i, 0].Location;
-                pictureBox.Size = field[i, 0].Size;
+                pictureBox.Location = field[freePos[n][0], freePos[n][1]].Location;
+                pictureBox.Size = field[freePos[n][0], freePos[n][1]].Size;
                 flagRandPict = true;
-                DrawNumeral(pictureBox, array[i, 0]);
+                DrawNumeral(pictureBox, array[freePos[n][0], freePos[n][1]]);
                 Controls.Add(pictureBox);
                 pictureBox.BringToFront();
-                cells[0, 0] = pictureBox;
+                cells[freePos[n][0], freePos[n][1]] = pictureBox;
+            }
+
+           //симулирование игровой ситуации
+           /*if (flag)
+           {
+               int i = 0;
+               //0,0
+               array[0, 0] = 2;
+               PictureBox pictureBox = new PictureBox();
+               pictureBox.Location = field[i, 0].Location;
+               pictureBox.Size = field[i, 0].Size;
+               flagRandPict = true;
+               DrawNumeral(pictureBox, array[i, 0]);
+               Controls.Add(pictureBox);
+               pictureBox.BringToFront();
+               cells[0, 0] = pictureBox;
 
 
-                //0,1
-                array[0, 1] = 2;
-                pictureBox = new PictureBox();
-                pictureBox.Location = field[i, 1].Location;
-                pictureBox.Size = field[i, 1].Size;
-                flagRandPict = true;
-                DrawNumeral(pictureBox, array[i, 1]);
-                Controls.Add(pictureBox);
-                pictureBox.BringToFront();
-                cells[0, 1] = pictureBox;
+               //0,1
+               array[0, 1] = 2;
+               pictureBox = new PictureBox();
+               pictureBox.Location = field[i, 1].Location;
+               pictureBox.Size = field[i, 1].Size;
+               flagRandPict = true;
+               DrawNumeral(pictureBox, array[i, 1]);
+               Controls.Add(pictureBox);
+               pictureBox.BringToFront();
+               cells[0, 1] = pictureBox;
 
-                //0,2
-                array[0, 2] = 8;
-                pictureBox = new PictureBox();
-                pictureBox.Location = field[i, 2].Location;
-                pictureBox.Size = field[i, 2].Size;
-                flagRandPict = true;
-                DrawNumeral(pictureBox, array[i, 2]);
-                Controls.Add(pictureBox);
-                pictureBox.BringToFront();
-                cells[0, 2] = pictureBox;
+               //0,2
+               array[0, 2] = 8;
+               pictureBox = new PictureBox();
+               pictureBox.Location = field[i, 2].Location;
+               pictureBox.Size = field[i, 2].Size;
+               flagRandPict = true;
+               DrawNumeral(pictureBox, array[i, 2]);
+               Controls.Add(pictureBox);
+               pictureBox.BringToFront();
+               cells[0, 2] = pictureBox;
 
-                //0,3
-                array[0, 3] = 8;
-                pictureBox = new PictureBox();
-                pictureBox.Location = field[i, 3].Location;
-                pictureBox.Size = field[i, 3].Size;
-                flagRandPict = true;
-                DrawNumeral(pictureBox, array[i, 3]);
-                Controls.Add(pictureBox);
-                pictureBox.BringToFront();
-                cells[i, 3] = pictureBox;
-                flag = false;
-            }*/
+               //0,3
+               array[0, 3] = 8;
+               pictureBox = new PictureBox();
+               pictureBox.Location = field[i, 3].Location;
+               pictureBox.Size = field[i, 3].Size;
+               flagRandPict = true;
+               DrawNumeral(pictureBox, array[i, 3]);
+               Controls.Add(pictureBox);
+               pictureBox.BringToFront();
+               cells[i, 3] = pictureBox;
+               flag = false;
+           }*/
         }
 
+        private void GetFreePosition()
+        {
+            int i = rand.Next(0, 4);
+            int j = rand.Next(0, 4);
+
+        }
         private void BestScore(int score)
         {
             int bestScore = 0;
