@@ -27,6 +27,13 @@ namespace _2048
             InitializeComponent();
             this.BackColor = Color.FromArgb(251, 246, 240);
             pictureBack.BackColor = Color.FromArgb(189, 173, 160);
+            pictureBox1.BackColor = Color.FromArgb(189, 173, 160);
+            pictureBox2.BackColor = Color.FromArgb(189, 173, 160);
+            label1.BackColor = Color.FromArgb(189, 173, 160);
+            label2.BackColor = Color.FromArgb(189, 173, 160);
+            labelBestScore.BackColor = Color.FromArgb(189, 173, 160);
+            labelScore.BackColor = Color.FromArgb(189, 173, 160);
+
             field = new PictureBox[4, 4] { { pb00, pb01, pb02, pb03 }, { pb10, pb11, pb12, pb13 }, { pb20, pb21, pb22, pb23 }, { pb30, pb31, pb32, pb33 } };
             foreach (PictureBox pb in field)
             {
@@ -386,6 +393,12 @@ namespace _2048
                 Controls.Add(pictureBox);
                 pictureBox.BringToFront();
                 cells[freePos[n][0], freePos[n][1]] = pictureBox;
+                freePos.Remove(freePos[n]);
+            }
+
+            if (freePos.Count() ==0 && NoAssociationsnions())
+            {
+                MessageBox.Show("Game over");
             }
 
            //симулирование игровой ситуации
@@ -440,11 +453,23 @@ namespace _2048
            }*/
         }
 
-        private void GetFreePosition()
+        private bool NoAssociationsnions()
         {
-            int i = rand.Next(0, 4);
-            int j = rand.Next(0, 4);
-
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if ((j-1>=0 && array[i,j-1] == array[i,j]) ||
+                        (i-1>=0 && array[i-1,j]==array[i,j])||
+                        (j+1<array.GetLength(0) && array[i,j+1]== array[i,j]) ||
+                        (i+1<array.GetLength(1) && array[i+1,j] == array[i,j])
+                        )
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         private void BestScore(int score)
         {
@@ -464,5 +489,7 @@ namespace _2048
                 labelBestScore.Text = score.ToString();
             }
         }
+
+       
     }
 }
