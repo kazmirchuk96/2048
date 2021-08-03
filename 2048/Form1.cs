@@ -34,6 +34,7 @@ namespace _2048
             labelBestScore.BackColor = Color.FromArgb(189, 173, 160);
             labelScore.BackColor = Color.FromArgb(189, 173, 160);
 
+
             field = new PictureBox[4, 4] { { pb00, pb01, pb02, pb03 }, { pb10, pb11, pb12, pb13 }, { pb20, pb21, pb22, pb23 }, { pb30, pb31, pb32, pb33 } };
             foreach (PictureBox pb in field)
             {
@@ -295,22 +296,42 @@ namespace _2048
                     break;
                 case "8":
                     pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(245, 176, 117);
-                    brush = Brushes.Black;
+                    brush = Brushes.White;
                     break;
                 case "16":
-                    pb.BackColor = (flagRandPict) ? Color.White : Color.Pink;
-                    brush = Brushes.Black;
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(231, 153, 108);
+                    brush = Brushes.White;
                     break;
                 case "32":
-                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(245, 124, 95);
-                    brush = Brushes.Black;
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.Orange;
+                    brush = Brushes.White;
                     break;
                 case "64":
-                    pb.BackColor = (flagRandPict) ? Color.White : Color.Green;
-                    brush = Brushes.Black;
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.Red;
+                    brush = Brushes.White;
+                    break;
+                case "128":
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(237, 206, 113);
+                    brush = Brushes.White;
+                    break;
+                case "256":
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(237, 204, 97);
+                    brush = Brushes.White;
+                    break;
+                case "512":
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(228, 192, 42);
+                    brush = Brushes.White;
+                    break;
+                case "1024":
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(228, 192, 42);
+                    brush = Brushes.White;
+                    break;
+                case "2048":
+                    pb.BackColor = (flagRandPict) ? Color.White : Color.FromArgb(237, 194, 46);
+                    brush = Brushes.White;
                     break;
                 default:
-                    pb.BackColor = Color.White;
+                    pb.BackColor = Color.Violet;
                     break;
             }
             pb.Paint += new PaintEventHandler((sender, e) =>
@@ -396,64 +417,21 @@ namespace _2048
                 freePos.Remove(freePos[n]);
             }
 
-            if (freePos.Count() ==0 && NoAssociationsnions())
+            if (freePos.Count() == 0 && NoAssociations())
             {
-                MessageBox.Show("Game over");
+                //MessageBox.Show("Game over");
+                //pbGameOver.Visible = true;
+                //pbGameOver.BringToFront();
+                //this.Opacity = 0.5;
+                labelGameOver.BringToFront();
+                labelGameOver.Visible = true;
+                buttonNewGame.BringToFront();
+                buttonNewGame.Visible = true;
+              
             }
-
-           //симулирование игровой ситуации
-           /*if (flag)
-           {
-               int i = 0;
-               //0,0
-               array[0, 0] = 2;
-               PictureBox pictureBox = new PictureBox();
-               pictureBox.Location = field[i, 0].Location;
-               pictureBox.Size = field[i, 0].Size;
-               flagRandPict = true;
-               DrawNumeral(pictureBox, array[i, 0]);
-               Controls.Add(pictureBox);
-               pictureBox.BringToFront();
-               cells[0, 0] = pictureBox;
-
-
-               //0,1
-               array[0, 1] = 2;
-               pictureBox = new PictureBox();
-               pictureBox.Location = field[i, 1].Location;
-               pictureBox.Size = field[i, 1].Size;
-               flagRandPict = true;
-               DrawNumeral(pictureBox, array[i, 1]);
-               Controls.Add(pictureBox);
-               pictureBox.BringToFront();
-               cells[0, 1] = pictureBox;
-
-               //0,2
-               array[0, 2] = 8;
-               pictureBox = new PictureBox();
-               pictureBox.Location = field[i, 2].Location;
-               pictureBox.Size = field[i, 2].Size;
-               flagRandPict = true;
-               DrawNumeral(pictureBox, array[i, 2]);
-               Controls.Add(pictureBox);
-               pictureBox.BringToFront();
-               cells[0, 2] = pictureBox;
-
-               //0,3
-               array[0, 3] = 8;
-               pictureBox = new PictureBox();
-               pictureBox.Location = field[i, 3].Location;
-               pictureBox.Size = field[i, 3].Size;
-               flagRandPict = true;
-               DrawNumeral(pictureBox, array[i, 3]);
-               Controls.Add(pictureBox);
-               pictureBox.BringToFront();
-               cells[i, 3] = pictureBox;
-               flag = false;
-           }*/
         }
 
-        private bool NoAssociationsnions()
+        private bool NoAssociations()
         {
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -490,6 +468,10 @@ namespace _2048
             }
         }
 
-       
+        private void buttonNewGame_Click(object sender, EventArgs e)
+        {
+           
+            Application.Restart();
+        }
     }
 }
