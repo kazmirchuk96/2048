@@ -223,7 +223,7 @@ namespace _2048
             // 
             // pictureBack
             // 
-            this.pictureBack.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBack.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.pictureBack.Location = new System.Drawing.Point(13, 72);
             this.pictureBack.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBack.Name = "pictureBack";
@@ -234,7 +234,7 @@ namespace _2048
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.label1.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(185, 28);
@@ -247,7 +247,7 @@ namespace _2048
             // labelScore
             // 
             this.labelScore.AutoSize = true;
-            this.labelScore.BackColor = System.Drawing.Color.Black;
+            this.labelScore.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.labelScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelScore.ForeColor = System.Drawing.Color.Black;
             this.labelScore.Location = new System.Drawing.Point(193, 46);
@@ -260,7 +260,7 @@ namespace _2048
             // labelBestScore
             // 
             this.labelBestScore.AutoSize = true;
-            this.labelBestScore.BackColor = System.Drawing.Color.Black;
+            this.labelBestScore.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.labelBestScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelBestScore.ForeColor = System.Drawing.Color.Black;
             this.labelBestScore.Location = new System.Drawing.Point(282, 46);
@@ -273,7 +273,7 @@ namespace _2048
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.label2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(262, 28);
@@ -285,7 +285,7 @@ namespace _2048
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.pictureBox1.Location = new System.Drawing.Point(177, 22);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
@@ -295,7 +295,7 @@ namespace _2048
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DimGray;
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(189, 173, 160);
             this.pictureBox2.Location = new System.Drawing.Point(254, 22);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -353,8 +353,9 @@ namespace _2048
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(251, 246, 240);
             this.ClientSize = new System.Drawing.Size(366, 474);
+
             this.Controls.Add(this.buttonNewGame);
             this.Controls.Add(this.labelGameOver);
             this.Controls.Add(this.label4);

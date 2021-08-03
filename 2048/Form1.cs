@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -25,16 +21,6 @@ namespace _2048
         public Form1()
         {
             InitializeComponent();
-            this.BackColor = Color.FromArgb(251, 246, 240);
-            pictureBack.BackColor = Color.FromArgb(189, 173, 160);
-            pictureBox1.BackColor = Color.FromArgb(189, 173, 160);
-            pictureBox2.BackColor = Color.FromArgb(189, 173, 160);
-            label1.BackColor = Color.FromArgb(189, 173, 160);
-            label2.BackColor = Color.FromArgb(189, 173, 160);
-            labelBestScore.BackColor = Color.FromArgb(189, 173, 160);
-            labelScore.BackColor = Color.FromArgb(189, 173, 160);
-
-
             field = new PictureBox[4, 4] { { pb00, pb01, pb02, pb03 }, { pb10, pb11, pb12, pb13 }, { pb20, pb21, pb22, pb23 }, { pb30, pb31, pb32, pb33 } };
             foreach (PictureBox pb in field)
             {
@@ -251,7 +237,7 @@ namespace _2048
                                             cells[k + 1, j].Location = cells[k, j].Location;
 
                                             //создание нового элемента
-                                            PictureBox pictureBox = new PictureBox();
+                                            var pictureBox = new PictureBox();
                                             pictureBox.Location = cells[k, j].Location;
                                             pictureBox.Size = cells[k, j].Size;
                                             DrawNumeral(pictureBox, array[k, j]);
@@ -281,6 +267,7 @@ namespace _2048
             labelScore.Text = score.ToString();
             BestScore(score);
         }
+
         private void DrawNumeral(PictureBox pb, int text)
         {
             Brush brush = Brushes.Black;
@@ -353,36 +340,15 @@ namespace _2048
                 flagRandPict = false;
             }
         }
-        private static void TimerEventProcessor(Object myObject,
-                                           EventArgs myEventArgs, Timer timer, PictureBox pb, int text)
+        private static void TimerEventProcessor(Object myObject, EventArgs myEventArgs, Timer timer, PictureBox pb, int text)
         {
             switch (text.ToString())
             {
                 case "2":
                     pb.BackColor = Color.FromArgb(238, 228, 218);
-                 
                     break;
                 case "4":
                     pb.BackColor = Color.FromArgb(236, 224, 200);
-                   
-                    break;
-                case "8":
-                    pb.BackColor = Color.FromArgb(245, 176, 117);
-                  
-                    break;
-                case "16":
-                    pb.BackColor = Color.Pink;
-                 
-                    break;
-                case "32":
-                    pb.BackColor = Color.FromArgb(245, 124, 95);
-                    break;
-                case "64":
-                    pb.BackColor = Color.Green;
-                
-                    break;
-                default:
-                    pb.BackColor = Color.White;
                     break;
             }
             timer.Stop();
@@ -419,15 +385,10 @@ namespace _2048
 
             if (freePos.Count() == 0 && NoAssociations())
             {
-                //MessageBox.Show("Game over");
-                //pbGameOver.Visible = true;
-                //pbGameOver.BringToFront();
-                //this.Opacity = 0.5;
                 labelGameOver.BringToFront();
                 labelGameOver.Visible = true;
                 buttonNewGame.BringToFront();
-                buttonNewGame.Visible = true;
-              
+                buttonNewGame.Visible = true; 
             }
         }
 
@@ -469,8 +430,7 @@ namespace _2048
         }
 
         private void buttonNewGame_Click(object sender, EventArgs e)
-        {
-           
+        {          
             Application.Restart();
         }
     }
