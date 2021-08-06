@@ -30,9 +30,9 @@ namespace _2048
             {
                 GenerationRandomCell();
             }
-            if (File.Exists(Application.StartupPath + "\\bestscore.txt"))//выводим лучший счет
+            if (File.Exists($"C:\\Users\\{Environment.UserName}\\Documents\\bestscore.txt"))//выводим лучший счет
             {
-                StreamReader sr = new StreamReader(Application.StartupPath + "\\bestscore.txt");
+                StreamReader sr = new StreamReader($"C:\\Users\\{Environment.UserName}\\Documents\\bestscore.txt");
                 labelBestScore.Text = sr.ReadLine();
                 sr.Close();
             }
@@ -413,16 +413,16 @@ namespace _2048
         private void BestScore(int score)
         {
             int bestScore = 0;
-            if (File.Exists(Application.StartupPath + "\\bestscore.txt"))
+            if (File.Exists($"C:\\Users\\{Environment.UserName}\\Documents\\bestscore.txt"))
             {
-                StreamReader sr = new StreamReader(Application.StartupPath + "\\bestscore.txt");
+                var sr = new StreamReader($"C:\\Users\\{Environment.UserName}\\Documents\\bestscore.txt");
                 bestScore = int.Parse(sr.ReadLine());
                 sr.Close();
             }
 
             if (score > bestScore)
             {
-                StreamWriter sw = new StreamWriter(Application.StartupPath + "\\bestscore.txt", false, System.Text.Encoding.Default);
+                var sw = new StreamWriter($"C:\\Users\\{Environment.UserName}\\Documents\\bestscore.txt", false, System.Text.Encoding.Default);
                 sw.WriteLine(score.ToString());
                 sw.Close();
                 labelBestScore.Text = score.ToString();
